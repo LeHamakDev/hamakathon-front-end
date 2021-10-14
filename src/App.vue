@@ -3,8 +3,27 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </div>
-  <router-view/>
+  <router-view />
 </template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import { useCookie } from "vue-cookie-next";
+import { useStore } from "vuex";
+export default defineComponent({
+  setup() {
+    const cookie = useCookie();
+    const store = useStore();
+    const token = cookie.getCookie("token");
+    if (token) {
+      console.log("cookie tokn", token)
+      store.state.token = token;
+    }
+  },
+  mounted() {},
+});
+</script>
+
 
 <style lang="scss">
 #app {
