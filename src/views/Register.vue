@@ -53,6 +53,7 @@
 </template>
 
 <script lang="ts">
+import router from "@/router";
 import { defineComponent } from "vue";
 import { useStore } from "vuex";
 export default defineComponent({
@@ -88,7 +89,7 @@ export default defineComponent({
           email:this.emailText
         });
         if (me.success == true) {
-          window.location.href = "/"
+          router.push("/")
         } else {
           this.registerError = true
         }

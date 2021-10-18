@@ -1,4 +1,3 @@
-import { register } from 'register-service-worker';
 import { createStore } from 'vuex'
 
 async function myPoster(body:Object, route:string) {
@@ -14,7 +13,6 @@ async function myPoster(body:Object, route:string) {
   const data = await response.json()
   return(data)
 }
-
 
 export default createStore({
   state: {
@@ -35,10 +33,22 @@ export default createStore({
       }
       return(myUser)
     },
+    async loginToken(context,token:string):Promise<Object> {
+      const myUser:any = await myPoster({token:token}, "/user/loginToken")
+      if (myUser.success == true) {
+        context.commit("changeToken", myUser.data.token)
+        console.log(myUser)
+      }
+      return(myUser)
+    },
     async register(context, data:{login:string, password:string,email:string,pseudo:string}):Promise<any> {
       const myUser:any = await myPoster(data, "/user/register")
       return(myUser)
-    }
+    },
+    async createTeam(context, name:string):Promise<any> {
+      const myTeam:any = await myPoster({name:name, token:context.state.token}, "/team/newTeam")
+      return(myTeam);
+    } 
   },
   modules: {
   }

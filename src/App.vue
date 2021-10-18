@@ -10,17 +10,31 @@
 import { defineComponent } from "vue";
 import { useCookie } from "vue-cookie-next";
 import { useStore } from "vuex";
+import router from "./router/index";
 export default defineComponent({
-  setup() {
+  setup() {},
+  async mounted() {
     const cookie = useCookie();
     const store = useStore();
     const token = cookie.getCookie("token");
-    if (token) {
-      console.log("cookie tokn", token)
+    console.log(store.state.token, "?");
+    if (token && store.state.token == "") {
+      console.log("cookie tokn", token);
       store.state.token = token;
+      const user = await store.dispatch("loginToken", token);
+      if (user.success == true) {
+        //router.push("/")
+      } else {
+        cookie.setCookie("token", "", {
+          expire: "7d",
+          path: "/",
+          domain: "",
+          secure: "",
+          sameSite: "",
+        });
+      }
     }
   },
-  mounted() {},
 });
 </script>
 

@@ -28,6 +28,7 @@
 import { defineComponent } from "vue";
 import { useStore } from "vuex";
 import { useCookie } from "vue-cookie-next";
+import router from "../router/index"
 export default defineComponent({
   name: "Login",
   setup(): any {
@@ -60,8 +61,8 @@ export default defineComponent({
           domain: "",
           secure: "",
           sameSite: "",
-        }); //return this
-        window.location.href = "/";
+        });
+        router.push("/")
       } else {
         this.loginError = true;
       }
