@@ -17,6 +17,7 @@ async function myPoster(body:Object, route:string) {
 export default createStore({
   state: {
     token:"",
+    dark:false
   },
   mutations: {
     changeToken(state, token:string) : void {

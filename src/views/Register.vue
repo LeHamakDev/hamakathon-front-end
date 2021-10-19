@@ -60,6 +60,7 @@ export default defineComponent({
   name: "Register",
   setup(): any {
     const store: any = useStore();
+    store.state.dark = true
     return {
       store: store,
     };

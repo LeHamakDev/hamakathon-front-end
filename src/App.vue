@@ -1,7 +1,7 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="nav" :class="(isDark ? 'darkmode' : '')">
+    <router-link :class="(isDark ? 'has-text-primary-light' : '')" to="/">Home</router-link> |
+    <router-link :class="(isDark ? 'has-text-primary-light' : '')" to="/about">About</router-link>
   </div>
   <router-view />
 </template>
@@ -12,7 +12,15 @@ import { useCookie } from "vue-cookie-next";
 import { useStore } from "vuex";
 import router from "./router/index";
 export default defineComponent({
-  setup() {},
+  setup() {
+    const store = useStore();
+    return ({store})
+  },
+  computed:{
+    isDark():boolean {
+      return (this.store.state.dark)
+    }
+  },
   async mounted() {
     const cookie = useCookie();
     const store = useStore();
@@ -45,19 +53,9 @@ export default defineComponent({
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
 #nav {
   padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>

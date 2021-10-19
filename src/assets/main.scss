@@ -1,4 +1,32 @@
 @import '~bulma';
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300&display=swap');
+$input-background-color: #224957;
+input {
+    background-color: inherit;
+}
+.darkmode{
+    background-color: #093545;
+    color: white;
+}
+
+.dark-input{
+    background-color: #224957;
+    color: white;
+}
+
+.pageWrapper{
+    height:100vh;
+    width: 100vw;
+}
+
+html, body {
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+#app {
+    font-family: 'Lexend Deca', sans-serif;
+}
+
 .box-register {
     width: 50%;
     height: 50%;

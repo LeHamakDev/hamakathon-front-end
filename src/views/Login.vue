@@ -1,26 +1,31 @@
 <template>
-  <div class="box box-register">
-    <div class="field">
-      <label class="label">Login or Email</label>
-      <div class="control">
-        <input class="input" type="text" v-model="loginText" />
+  <div class="pageWrapper darkmode">
+    <div class="darkmode box-register">
+      <h1 class="title is-1 has-text-primary-light">Log in</h1>
+      <hr class="darkmode"/>
+      <h5 class="title is-5 has-text-primary-light">Create an account here</h5>
+      <div class="field">
+        <label class="label">Login or Email</label>
+        <div class="control">
+          <input class="input dark-input" type="text" v-model="loginText" />
+        </div>
       </div>
+      <div class="field">
+        <label class="label">Password</label>
+        <div class="control">
+          <input class="input dark-input" type="password" v-model="passwordText" />
+        </div>
+      </div>
+      <button @click="login()" class="button is-primary">Login</button>
+      <div class="is-divider"></div>
+      <hr class="darkmode"/>
+      <article v-if="isLoginErr" class="message is-danger">
+        <div class="message-header">
+          <p>Can't connect</p>
+        </div>
+        <div class="message-body">Incorrect login or password.</div>
+      </article>
     </div>
-    <div class="field">
-      <label class="label">Password</label>
-      <div class="control">
-        <input class="input" type="password" v-model="passwordText" />
-      </div>
-    </div>
-    <button @click="login()" class="button is-primary">Login</button>
-    <div class="is-divider"></div>
-    <hr />
-    <article v-if="isLoginErr" class="message is-danger">
-      <div class="message-header">
-        <p>Can't connect</p>
-      </div>
-      <div class="message-body">Incorrect login or password.</div>
-    </article>
   </div>
 </template>
 
@@ -28,12 +33,14 @@
 import { defineComponent } from "vue";
 import { useStore } from "vuex";
 import { useCookie } from "vue-cookie-next";
-import router from "../router/index"
+import router from "../router/index";
 export default defineComponent({
   name: "Login",
   setup(): any {
     const store: any = useStore();
     const cookie: any = useCookie();
+    store.state.dark = true
+    console.log("test")
     return {
       store: store,
       cookie: cookie,
@@ -62,7 +69,7 @@ export default defineComponent({
           secure: "",
           sameSite: "",
         });
-        router.push("/")
+        router.push("/");
       } else {
         this.loginError = true;
       }
