@@ -2,23 +2,47 @@
   <div class="pageWrapper darkmode">
     <div class="darkmode box-register">
       <h1 class="title is-1 has-text-primary-light">Log in</h1>
-      <hr class="darkmode"/>
-      <h5 class="title is-5 has-text-primary-light">Create an account here</h5>
+      <hr class="darkmode" />
+      <h5 class="title is-5 has-text-primary-light">
+        Create an account <a class="login-here" href="/register">Here</a>
+      </h5>
       <div class="field">
-        <label class="label">Login or Email</label>
-        <div class="control">
-          <input class="input dark-input" type="text" v-model="loginText" />
+        <div class="control login-input-wrapper">
+          <input
+            class="input dark-input"
+            placeholder="Login or Email"
+            type="text"
+            v-model="loginText"
+          />
         </div>
       </div>
       <div class="field">
-        <label class="label">Password</label>
-        <div class="control">
-          <input class="input dark-input" type="password" v-model="passwordText" />
+        <div class="control login-input-wrapper">
+          <input
+            placeholder="Password"
+            class="input dark-input"
+            type="password"
+            v-model="passwordText"
+          />
         </div>
       </div>
-      <button @click="login()" class="button is-primary">Login</button>
+      <div class="login-rem-lost-pass login-input-wrapper">
+        <div>
+          <label class="toggle" for="uniqueID">
+            <input type="checkbox" class="toggle__input" id="uniqueID" />
+            <span class="toggle-track">
+              <span class="toggle-indicator"> </span>
+            </span>
+            Remember Me !
+          </label>
+        </div>
+        <a class="login-forgot" href="/">Forgot password ?</a>
+      </div>
+      <button @click="login()" class="button is-primary login-button">
+        Login
+      </button>
       <div class="is-divider"></div>
-      <hr class="darkmode"/>
+      <hr class="darkmode" />
       <article v-if="isLoginErr" class="message is-danger">
         <div class="message-header">
           <p>Can't connect</p>
@@ -39,8 +63,8 @@ export default defineComponent({
   setup(): any {
     const store: any = useStore();
     const cookie: any = useCookie();
-    store.state.dark = true
-    console.log("test")
+    store.state.dark = true;
+    console.log("test");
     return {
       store: store,
       cookie: cookie,

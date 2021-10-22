@@ -1,31 +1,122 @@
 @import '~bulma';
+@import "./customCheckbox.scss";
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 $input-background-color: #224957;
+$input-border-color: #224957;
+
+html,
+body {
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+input::placeholder {
+    color: white !important;
+}
+
 input {
     background-color: inherit;
 }
-.darkmode{
+
+input[type=checkbox] {
+    /* Double-sized Checkboxes */
+    -ms-transform: scale(1.5); /* IE */
+    -moz-transform: scale(1.5); /* FF */
+    -webkit-transform: scale(1.5); /* Safari and Chrome */
+    -o-transform: scale(1.5); /* Opera */
+    transform: scale(1.5);
+    padding: 10px;
+}
+
+.nav-logo {
+    margin-left: 2vw;
+    margin-top: 2vh;
+    font-size: 0;
+}
+
+.nav-bar-logo-p1 {
+    font-family: 'Squada One', cursive !important;
+    margin: 0;
+    font-size: 5vh;
+    color: #649b91;
+}
+
+.nav-bar-logo-p2 {
+    font-family: 'Permanent Marker', cursive !important;
+    font-size: 5vh;
+    color: #000000;
+}
+
+.remember-me {
+    font-size: 2vh;
+    margin-right: 1vh;
+}
+
+.login-here {
+    color: white;
+    text-decoration: underline white;
+}
+
+.login-here:hover {
+    color: rgb(180, 180, 180);
+    text-decoration: underline rgb(180, 180, 180);
+}
+
+.login-forgot {
+    color: #77B7AB;
+    font-size: 2vh;
+}
+
+.login-forgot:hover {
+    color: #649b91;
+    font-size: 2vh;
+}
+
+.login-input-wrapper {
+    margin-bottom: 5vh;
+}
+
+.login-rem-lost-pass {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-button {
+    width: 100%;
+    border-radius: 20px;
+    height: 6vh;
+    font-size: 2vh;
+}
+
+.darkmode {
     background-color: #093545;
     color: white;
 }
 
-.dark-input{
-    background-color: #224957;
-    color: white;
+.darkmode-logo-p1 {
+    color: #77B7AB;
 }
 
-.pageWrapper{
-    height:100vh;
+.darkmode-logo-p2 {
+    color:white
+}
+.dark-input {
+    background-color: #224957 !important;
+    color: white;
+    border-color: #224957 !important;
+    border-radius: 20px;
+    height: 6vh;
+    font-size: 2vh;
+
+}
+
+
+.pageWrapper {
+    height: 100vh;
     width: 100vw;
 }
 
-html, body {
-    font-family: 'Lexend Deca', sans-serif;
-}
-
-#app {
-    font-family: 'Lexend Deca', sans-serif;
-}
 
 .box-register {
     width: 50%;
@@ -34,4 +125,9 @@ html, body {
 }
 hr {
     margin: 40px 0;
+}
+
+#nav {
+    display: flex;
+    justify-content: space-between;
 }

@@ -1,7 +1,17 @@
 <template>
-  <div id="nav" :class="(isDark ? 'darkmode' : '')">
-    <router-link :class="(isDark ? 'has-text-primary-light' : '')" to="/">Home</router-link> |
-    <router-link :class="(isDark ? 'has-text-primary-light' : '')" to="/about">About</router-link>
+  <div id="nav" :class="isDark ? 'darkmode' : ''">
+    <div class="nav-logo">
+      <span
+        :class="(isDark ? 'darkmode-logo-p1' : '') + ' nav-bar-logo-p1'"
+        @click="goHome">
+        Hamak</span>
+      <span
+        :class="(isDark ? 'darkmode-logo-p2' : '') + ' nav-bar-logo-p2'"
+        @click="goHome">athon</span>
+    </div>
+    <router-link :class="isDark ? 'has-text-primary-light' : ''" to="/about"
+      >About</router-link
+    >
   </div>
   <router-view />
 </template>
@@ -14,13 +24,20 @@ import router from "./router/index";
 export default defineComponent({
   setup() {
     const store = useStore();
-    return ({store})
+    return { store };
   },
-  computed:{
-    isDark():boolean {
-      return (this.store.state.dark)
-    }
+  computed: {
+    isDark(): boolean {
+      return this.store.state.dark;
+    },
   },
+
+  methods: {
+    goHome(): void {
+      router.push("/login");
+    },
+  },
+
   async mounted() {
     const cookie = useCookie();
     const store = useStore();
@@ -49,13 +66,8 @@ export default defineComponent({
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-}
-
-#nav {
-  padding: 30px;
 }
 </style>
