@@ -2,11 +2,12 @@
 @import "./customCheckbox.scss";
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 $input-background-color: #224957;
 $input-border-color: #224957;
-$button-active-color:#ffffff00;
-
+$button-active-color: #ffffff00;
+$iconSize: 4vh;
 html,
 body {
     font-family: 'Lexend Deca', sans-serif;
@@ -29,6 +30,53 @@ input[type=checkbox] {
     padding: 10px;
 }
 
+.roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+.icon-doubleDown {
+    height: $iconSize;
+}
+
+.home-text {
+    margin-bottom: 5vh;
+}
+
+.home-p1-left {
+    margin: auto;
+    height: 70%;
+    width: 35%;
+    text-align: start;
+}
+
+
+.home-p1-wrapper {
+    height: 90%;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-p1-right {
+    width: 65%;
+}
+
+.home-doubleDown {
+    position: absolute;
+    bottom: 20px;
+}
+
+.home-p1 {
+    margin-top: 4vh;
+    height: 84vh;
+    width: 100vw;
+}
+.home-p2 {
+    height: 100vh;
+    width: 100vw;
+}
+
 .nav-logo {
     margin-left: 2vw;
     margin-top: 2vh;
@@ -48,9 +96,10 @@ input[type=checkbox] {
     background-color: rgba(255, 255, 255, 0);
     border-color: rgba(255, 255, 255, 0);
     color: white;
-    font-size: 2.2vh; 
+    font-size: 2.2vh;
 }
 
+.purple-back,
 .nav-purple {
     background-color: #A89CFF;
     color: white;
@@ -111,7 +160,8 @@ input[type=checkbox] {
     font-size: 2vh;
 }
 
-.login-input-wrapper {
+.login-input-wrapper,
+.register-input-wrapper {
     margin-bottom: 5vh;
 }
 

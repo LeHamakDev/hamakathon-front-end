@@ -1,54 +1,50 @@
 <template>
-  <div class="box box-register">
-    <div class="field">
-      <label class="label">Login</label>
-      <div class="control">
-        <input class="input" type="text" v-model="loginText" />
+  <div class="pageWrapper darkmode">
+    <div class="darkmode box-register">
+      <h1 class="title is-1 has-text-primary-light">Register</h1>
+      <hr class="darkmode" />
+      <h5 class="title is-5 has-text-primary-light">
+        Already have an account ? Click <a class="login-here" @click="goLogin">here</a> to Log in
+      </h5>
+      <div class="field">
+        <div class="control register-input-wrapper">
+          <input placeholder="Login" class="input dark-input" type="text" v-model="loginText" />
+        </div>
       </div>
-    </div>
 
-    <div class="field">
-      <label class="label">Email</label>
-      <div class="control">
-        <input
-          class="input"
-          type="email"
-          placeholder="e.g. alex@example.com"
-          v-model="emailText"
-        />
+      <div class="field">
+        <div class="control register-input-wrapper">
+          <input
+            class="input dark-input"
+            type="email"
+            placeholder="Email"
+            v-model="emailText"
+          />
+        </div>
       </div>
-    </div>
 
-    <div class="field">
-      <label class="label">Password</label>
-      <div class="control">
-        <input class="input" type="password" v-model="passwordText" />
+      <div class="field">
+        <div class="control register-input-wrapper">
+          <input placeholder="Password" class="input dark-input" type="password" v-model="passwordText" />
+        </div>
       </div>
-    </div>
 
-    <div class="field">
-      <label class="label">Confirm Password</label>
-      <div class="control">
-        <input class="input" type="password" v-model="cpasswordText" />
+      <div class="field">
+        <div class="control register-input-wrapper">
+          <input placeholder="Confirm Password" class="input dark-input" type="password" v-model="cpasswordText" />
+        </div>
       </div>
-    </div>
 
-    <div class="field">
-      <label class="label">Pseudo</label>
-      <div class="control">
-        <input class="input" type="text" v-model="pseudoText" />
-      </div>
+      <button @click="register()" class="button is-primary login-button">Register</button>
+      <div class="is-divider"></div>
+      <hr class="darkmode" />
+      <article v-if="isRegisterErr" class="message is-danger">
+        <div class="message-header">
+          <p>Can't register</p>
+        </div>
+        <div class="message-body">login or email already taken.</div>
+      </article>
     </div>
-
-    <button @click="register()" class="button is-primary">Register</button>
-    <div class="is-divider"></div>
-    <hr>
-    <article v-if="isRegisterErr" class="message is-danger">
-      <div class="message-header">
-        <p>Can't connect</p>
-      </div>
-      <div class="message-body">Incorrect login or password.</div>
-    </article>
   </div>
 </template>
 
@@ -60,7 +56,7 @@ export default defineComponent({
   name: "Register",
   setup(): any {
     const store: any = useStore();
-    store.state.dark = true
+    store.state.dark = true;
     return {
       store: store,
     };
@@ -72,13 +68,13 @@ export default defineComponent({
       passwordText: "",
       cpasswordText: "",
       pseudoText: "",
-      registerError:false,
+      registerError: false,
     };
   },
-  computed : {
-    isRegisterErr():boolean {
-      return(this.registerError)
-    }
+  computed: {
+    isRegisterErr(): boolean {
+      return this.registerError;
+    },
   },
   methods: {
     async register() {
@@ -86,13 +82,13 @@ export default defineComponent({
         const me: any = await this.store.dispatch("register", {
           login: this.loginText,
           password: this.passwordText,
-          pseudo:this.pseudoText,
-          email:this.emailText
+          pseudo: this.loginText,
+          email: this.emailText,
         });
         if (me.success == true) {
-          router.push("/")
+          router.push("/");
         } else {
-          this.registerError = true
+          this.registerError = true;
         }
       }
     },

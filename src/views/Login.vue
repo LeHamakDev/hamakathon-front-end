@@ -4,7 +4,7 @@
       <h1 class="title is-1 has-text-primary-light">Log in</h1>
       <hr class="darkmode" />
       <h5 class="title is-5 has-text-primary-light">
-        Create an account <a class="login-here" href="/register">Here</a>
+        Create an account <a class="login-here" @click="goLogin">Here</a>
       </h5>
       <div class="field">
         <div class="control login-input-wrapper">
@@ -79,6 +79,9 @@ export default defineComponent({
     },
   },
   methods: {
+    goLogin():void {
+      router.push("/register")
+    },
     async login() {
       const me: any = await this.store.dispatch("login", {
         login: this.loginText,
