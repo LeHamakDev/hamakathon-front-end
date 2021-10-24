@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 $input-background-color: #224957;
 $input-border-color: #224957;
+$button-active-color:#ffffff00;
 
 html,
 body {
@@ -20,7 +21,6 @@ input {
 }
 
 input[type=checkbox] {
-    /* Double-sized Checkboxes */
     -ms-transform: scale(1.5); /* IE */
     -moz-transform: scale(1.5); /* FF */
     -webkit-transform: scale(1.5); /* Safari and Chrome */
@@ -33,6 +33,43 @@ input[type=checkbox] {
     margin-left: 2vw;
     margin-top: 2vh;
     font-size: 0;
+}
+
+.nav-item {
+    margin: 4vh 6vh 2vh 2vh;
+    transform: scale(1);
+    background-color: rgba(255, 255, 255, 0);
+    border-color: rgba(255, 255, 255, 0);
+    font-size: 2.2vh;
+}
+.nav-item-dark {
+    margin: 4vh 6vh 2vh 2vh;
+    transform: scale(1);
+    background-color: rgba(255, 255, 255, 0);
+    border-color: rgba(255, 255, 255, 0);
+    color: white;
+    font-size: 2.2vh; 
+}
+
+.nav-purple {
+    background-color: #A89CFF;
+}
+
+.nav-item-dark:active,
+.nav-item-dark:focus,
+.nav-item-dark:hover {
+    color: white;
+}
+
+.nav-item-dark:active,
+.nav-item-dark:focus,
+.nav-item:active,
+.nav-item:focus {
+    border-color: rgba(255, 255, 255, 0);
+}
+.nav-item-dark:hover,
+.nav-item:hover {
+    border-color: rgba(255, 255, 255, 0);
 }
 
 .nav-bar-logo-p1 {
@@ -99,7 +136,7 @@ input[type=checkbox] {
 }
 
 .darkmode-logo-p2 {
-    color:white
+    color: white
 }
 .dark-input {
     background-color: #224957 !important;
@@ -119,7 +156,7 @@ input[type=checkbox] {
 
 
 .box-register {
-    width: 50%;
+    width: 40%;
     height: 50%;
     margin: auto;
 }

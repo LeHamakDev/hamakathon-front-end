@@ -3,15 +3,21 @@
     <div class="nav-logo">
       <span
         :class="(isDark ? 'darkmode-logo-p1' : '') + ' nav-bar-logo-p1'"
-        @click="goHome">
-        Hamak</span>
+        @click="goHome"
+      >
+        Hamak</span
+      >
       <span
         :class="(isDark ? 'darkmode-logo-p2' : '') + ' nav-bar-logo-p2'"
-        @click="goHome">athon</span>
+        @click="goHome"
+        >athon</span
+      >
     </div>
-    <router-link :class="isDark ? 'has-text-primary-light' : ''" to="/about"
-      >About</router-link
-    >
+    <div class="nav-right">
+      <button @click="goDiscover" :class="(isDark ? 'nav-item-dark' : 'nav-item') + ' button is-rounded'">Discover</button>
+      <button v-if="isOnJam" @click="goLogin" :class="(isDark ? 'nav-item-dark' : 'nav-item nav-purple') + ' button is-rounded'">Log in</button>
+      <button v-else @click="goHome" :class="(isDark ? 'nav-item-dark' : 'nav-item nav-purple') + ' button is-rounded'">Jam</button>
+    </div>
   </div>
   <router-view />
 </template>
@@ -30,11 +36,20 @@ export default defineComponent({
     isDark(): boolean {
       return this.store.state.dark;
     },
+    isOnJam() :boolean {
+      return this.store.state.isOnJam;
+    }
   },
 
   methods: {
     goHome(): void {
+      router.push("/");
+    },
+    goLogin(): void {
       router.push("/login");
+    },
+    goDiscover(): void {
+      router.push("/");
     },
   },
 

@@ -64,7 +64,7 @@ export default defineComponent({
     const store: any = useStore();
     const cookie: any = useCookie();
     store.state.dark = true;
-    console.log("test");
+    store.state.isOnJam = false;
     return {
       store: store,
       cookie: cookie,
