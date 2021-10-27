@@ -6,12 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     name: build&deploy
     steps:
-      - name: 👉🧐👈 Checkout
+      - name: 🧐 Checkout
         uses: actions/checkout@v2
 
       - name: 👉😎👈 Install Dependencies
         run: npm i
-      - name: 👉👷👈 Build
+      - name: 👷 Build
         run: |
           echo VUE_APP_API_URL="http://51.91.248.166:1337" > .env.local
           npm run build
