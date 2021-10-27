@@ -23,5 +23,5 @@ jobs:
           username: ubuntu
           password: ${{ secrets.FTP_PASS }}
           local-dir: ./dist/
-          server-dir: /home/ubuntu/hamakathon/server/dist
+          server-dir: /home/ubuntu/hamakathon/server/dist/
           port: 22
