@@ -5,7 +5,7 @@
         <h3 class="home-title roboto title is-3">Hamakathon, by Le Hamak</h3>
         <hr />
         <h6 class="home-text roboto subtitle is-6">
-          Bacon ipsum dolor amet doner turkey picanha pork short ribs swine. Cow
+          THis is a test Bacon ipsum dolor amet doner turkey picanha pork short ribs swine. Cow
           drumstick flank t-bone, ham hock beef ribs tail leberkas ground round
           short ribs kevin venison biltong beef burgdoggen. Beef ribs boudin
           doner tongue. Bacon chicken shankle sirloin ball tip shoulder.
