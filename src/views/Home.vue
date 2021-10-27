@@ -30,7 +30,6 @@
   </div>
   <div id="home-p2" class="home-p2"></div>
 </template>
-
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useStore } from "vuex";
