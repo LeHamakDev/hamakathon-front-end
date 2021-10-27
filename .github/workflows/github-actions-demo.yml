@@ -22,6 +22,6 @@ jobs:
           server: 51.91.248.166
           username: ubuntu
           password: ${{ secrets.FTP_PASS }}
-          local-dir: dist
+          local-dir: ./dist/
           server-dir: /home/ubuntu/hamakathon/server/dist
           port: 22
