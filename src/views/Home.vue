@@ -14,17 +14,13 @@
           Join the experience
         </button>
       </div>
-
-      <carousel class="home-p1-right" :items-to-show="1.5">
-        <slide v-for="slide in 10" :key="slide">
-          {{ slide }}
-        </slide>
-
-        <template #addons>
-          <navigation />
-          <pagination />
-        </template>
-      </carousel>
+      <div class="home-p1-right">
+        <div class="home-p1-right-header">
+          <span class="dot red-dot"></span>
+          <span class="dot yellow-dot"></span>
+          <span class="dot green-dot"></span>
+        </div>
+      </div>
     </div>
     <img
       @click="scrollToP2"
@@ -38,8 +34,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useStore } from "vuex";
-import "vue3-carousel/dist/carousel.css";
-import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 export default defineComponent({
   name: "Home",
   setup(): any {
@@ -50,12 +44,6 @@ export default defineComponent({
       store: store,
       doubleDown: require("../assets/icons/doubleDown.svg"),
     };
-  },
-  components: {
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation,
   },
   methods: {
     scrollToP2(): void {
