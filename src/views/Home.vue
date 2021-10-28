@@ -28,16 +28,24 @@
   <div id="home-p2" class="home-p2">
     <div class="overlap-parent">
       <div class="screen overlap-a"><ScreenHeader /></div>
-      <div class="screen-brighter overlap-b"><ScreenHeader /></div>
+      <div class="screen-brighter overlap-b">
+        <ScreenHeader />
+        <form action="">
+          <VoteProgressBar :title="'il'" :myid="'123'" :percent="'30'" />
+          <VoteProgressBar :title="'faut'" :myid="'123'" :percent="'20'" />
+          <VoteProgressBar :title="'aligner'" :myid="'123'" :percent="'50'" />
+        </form>
+      </div>
     </div>
   </div>
 </template>
 <script lang="ts">
 import ScreenHeader from "@/components/ScreenHeader.vue";
+import VoteProgressBar from "@/components/VoteProgressBar.vue";
 import { defineComponent } from "vue";
 import { useStore } from "vuex";
 export default defineComponent({
-  components: { ScreenHeader },
+  components: { ScreenHeader, VoteProgressBar },
   name: "Home",
   setup(): any {
     const store: any = useStore();
