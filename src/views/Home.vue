@@ -35,7 +35,20 @@
           <VoteProgressBar :title="'faut'" :myid="'123'" :percent="'20'" />
           <VoteProgressBar :title="'aligner'" :myid="'123'" :percent="'50'" />
         </form>
-      <button v-if="isLoged" @click="goLogin" :class="'vote-button nav-purple button is-rounded'">Log to vote</button>
+        <button
+          v-if="isLoged == ''"
+          @click="goLogin"
+          :class="'vote-button nav-purple button is-rounded'"
+        >
+          Log to vote
+        </button>
+        <button
+          v-else
+          @click="goVote"
+          :class="'vote-button nav-purple button is-rounded'"
+        >
+          Vote !
+        </button>
       </div>
     </div>
   </div>
@@ -63,14 +76,18 @@ export default defineComponent({
       var element = document.getElementById("home-p2");
       element?.scrollIntoView({ block: "end", behavior: "smooth" });
     },
-    goLogin():void {
-      router.push("/login")
-    }
+    goLogin(): void {
+      router.push("/login");
+    },
+
+    goVote(): void {
+      router.push("/vote");
+    },
   },
   computed: {
-    isLoged(): boolean {
-      return (this.store.state.token != "" ? true : false)
-    }
-  }
+    isLoged(): string {
+      return this.store.state.token
+    },
+  },
 });
 </script>
