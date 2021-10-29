@@ -1,6 +1,6 @@
 <template>
   <div class="progress-bar">
-    <span class="progress-bar-item">{{ title }}</span>
+    <span class="align-text-left progress-bar-item">{{ title }}</span>
     <div class="progress-bar-item"><input type="radio" name="radio" /></div>
     <progress
       class="progress is-primary progress-bar-item custom-progress"
